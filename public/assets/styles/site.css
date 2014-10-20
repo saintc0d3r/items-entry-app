@@ -1,0 +1,42 @@
+table, th, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+th, td{
+    padding: 7px;
+}
+table tr:nth-child(odd) {
+    background-color: #f1f1f1;    
+}
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}   
+body section {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Post item form's style */
+ul {
+    list-style: none;
+    padding:0;
+    margin:2px;
+}
+ul li{
+    padding: 0;
+    clear: both;
+    margin: 0 0 10px 0;
+}
+ul li label {
+    width: 120px;
+    float: left;
+}  
+input.title{
+    width: 250px;
+}
+input.price {
+    width: 120px;
+}
+input.quantity{
+    width: 50px;
+}

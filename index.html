@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js" defer></script>
+        <link rel="stylesheet" href="public/assets/styles/site.css">
+        <script src="public/controllers/items.js"></script>                
+    </head>
+    <body ng-app="items-shop" ng-controller="items" ng-init="button_post_label='Post New Item'; post_item={}">
+        <header><h2>Items Shop List</h2><hr/></header>
+        <section>
+            <section ng-show="post_panel_visible">
+                <form>
+                    <ul>
+                        <li><label>Title</label><input class="title" type="text" name="" placeholder="e.g. Pedang Naga Puspa" ng-model="post_item.title"></li>
+                        <li><label>Description</label><textarea name="" cols="60" rows="6" ng-model="post_item.description"></textarea></li>
+                        <li><label>Price</label><input class="price" type="number" name="" value="0.00" min="0" step="0.01" ng-model="post_item.price"></li>
+                        <li><label>Quantity</label><input class="quantity" type="number" name="" value="0" min="0" ng-model="post_item.quantity"></li>
+                        <li><button ng-click="on_post_button_clicked()" type="button">Post</button></li>
+                    </ul>
+                </form>
+            </section>
+            <section ng-show="post_progress_panel_visible">
+                <img src="public/assets/images/spinner.gif" alt=""><h4>Post item is still in progress ...</h4>
+            </section>
+            <section ng-show="post_result_panel_visible">
+                <p><h3>{{last_post_result}}</h3></p>
+                <button type="button" ng-click="on_result_panel_button_clicked()">Done</button>
+            </section>
+            <button ng-click="on_show_post_panel_button_clicked()" ng-model="button_post_label" ng-show="button_post_visible" type="button">{{button_post_label}}</button>
+        </section>
+        <section >
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr ng-repeat="item in items | orderBy : id">
+                    <td>{{item.title}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{(item.price|currency)}}</td>
+                    <td>{{item.quantity}}</td>
+                </tr>
+            </table>
+        </section>
+    </body>
+</html>

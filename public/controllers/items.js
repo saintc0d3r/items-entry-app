@@ -6,7 +6,7 @@
 angular.module('items-shop', []).
 controller('items', function($scope, $http){
     // Your own REST service endpoint that return a list of items, where an item has these properties: title, description, price, quantity
-    var rest_endpoint = 'http://localhost/items';
+    var rest_endpoint = 'http://localhost';
     $scope.post_panel_visible = false;
     $scope.post_result_panel_visible = false;
 
